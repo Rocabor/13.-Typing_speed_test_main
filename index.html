@@ -1,56 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Typing Speed Test</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
-  <link rel="stylesheet" href="style/style.css">
+    <title>Frontend Mentor | Typing Speed Test</title>
 
-  <script defer src="script/script.js"></script>
+    <link rel="stylesheet" href="style/style.css" />
 
-  
+    <script defer src="script/script.js"></script>
 
- 
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main">
 
-  Personal best: <!-- PB --> WPM
+      <!-- CABECERA: Logo y récord personal -->
+      <header class="header">
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/images/logo-large.svg">
+          <img src="assets/images/logo-small.svg" alt="Typing Test Logo" class="logo" />
+        </picture>
+        
 
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Time: <!-- Time -->
+        <div class="personal-best-text-cont">
+          <div class="personal-best">
+            <img src="assets/images/icon-personal-best.svg" alt="Trophy icon" aria-hidden="true" />
 
-  Difficulty:
-  Easy
-  Medium
-  Hard
+            <span class="pb-label">Personal best:</span>
+            <span id="pb-score" class="pb-value" aria-live="polite">--- WPM</span>
+          </div>
+        </div>
+      </header>
 
-  Mode:
-  Timed (60s)
-  Passage
+      <main class="main-content">
+        
+        <!-- SECCIÓN DE ESTADÍSTICAS: Uso de etiquetas de datos -->
+        <section class="stats-container" aria-label="Estadísticas en tiempo real">
+          
+          <div class="stats-row">
+            <div class="stat-item wpm-cont">
+              <span class="stat-label">WPM:</span>
+              <strong class="stat-value" id="wpm">---</strong>
+            </div>
+            <div class="stat-item acc-cont">
+              <span class="stat-label">Accuracy:</span>
+              <strong class="stat-value" id="accuracy">---%</strong>
+            </div>
+            <div class="stat-item time-cont">
+              <span class="stat-label">Time:</span>
+              <strong class="stat-value" id="time">-:--</strong>
+            </div>
+          </div>
 
-  <!-- Passage -->
+          <!-- MENU DE DIFICULTAD MODO MOVIL -->
+          <div class="setting-cont-movil" aria-label="Configuración del test">
+            <button type="button" class="btn-setting" aria-haspopup="listbox" aria-expanded="false">
+              Difficulty
+              <img src="assets/images/icon-down-arrow.svg" alt="" aria-hidden="true" />
 
-  Start Typing Test
-  Or click the text and start typing
+              <div class="dropdown-difficulty">
+                <div class="select">
+                  <div class="circle"></div>
+                  <p>Easy</p>
+                </div>
+                <hr />
+                <div class="select">
+                  <div class="circle">
+                    <div class="circle-2"></div>
+                  </div>
+                  <p>Medium</p>
+                </div>
+                <hr />
+                <div class="select">
+                  <div class="circle">
+                    <div class="circle-2"></div>
+                  </div>
+                  <p>Hard</p>
+                </div>
+              </div>
+            </button>
 
-  <!-- Test Complete Start -->
+            <button type="button" class="btn-setting" aria-haspopup="listbox" aria-expanded="false">
+              Mode
+              <img src="assets/images/icon-down-arrow.svg" alt="" aria-hidden="true" />
 
-  Test Complete!
-  Solid run. Keep pushing to beat your high score.
+              <div class="dropdown-mode">
+                <div class="select">
+                  <div class="circle"></div>
+                  <p>Timed (15s)</p>
+                </div>
+                <hr />
+                <div class="select">
+                  <div class="circle"></div>
+                  <p>Timed (30s)</p>
+                </div>
+                <hr />
+                <div class="select">
+                  <div class="circle"></div>
+                  <p>Timed (60s)</p>
+                </div>
+                <hr />
+                <div class="select">
+                  <div class="circle"></div>
+                  <p>Timed (120s)</p>
+                </div>
+                <hr />
+                <div class="select">
+                  <div class="circle"></div>
+                  <p>Passage</p>
+                </div>
+              </div>
+            </button>
+          </div>
 
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Characters: <!-- Correct/Incorrect -->
+           <!-- MENU DIFICULTAD MODO TABLET o DESKTOP -->
 
-  Go Again
-  
-  <!-- Test Complete End -->
+        <div class="setting-cont" aria-label="Configuración del test">
+          <div class="difficulty-cont">
+            <span class="difficulty-label">Difficulty:</span>
+            <button type="button" class="btn-difficulty">Easy</button>
+            <button type="button" class="btn-difficulty">Medium</button>
+            <button type="button" class="btn-difficulty">Hard</button>
+          </div>
 
- 
-</body>
+          <div class="mode-cont">
+            <span class="mode-label">Mode:</span>
+            <button type="button" class="btn-mode"> 15s</button>
+            <button type="button" class="btn-mode"> 30s</button>
+            <button type="button" class="btn-mode"> 60s</button>
+            <button type="button" class="btn-mode"> 120s</button>
+            <button type="button" class="btn-mode">Passage</button>       
+          </div>
+
+        </div>
+        </section>      
+
+
+        <!-- ÁREA DE ESCRITURA: Estructura clara para interacción -->
+        <section class="text-container">
+          <div class="text-row" id="typing-area">
+            <div class="text-box" id="text-box">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum laboriosam totam soluta id optio consequuntur iure id optio consequuntur iure id optio consequuntur iure
+            </div>
+
+            <div class="test-controls">
+              <button type="button" class="btn-start" id="start-btn">Start Typing Test</button>
+              <p class="hint">Or click the text and start typing</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <p hidden>
+      Personal best:
+      <!-- PB -->
+      WPM WPM:
+      <!-- WPM -->
+      Accuracy:
+      <!-- Accuracy -->
+      Time:
+      <!-- Time -->
+
+      Difficulty: Easy Medium Hard Mode: Timed (60s) Passage
+
+      <!-- Passage -->
+
+      Start Typing Test Or click the text and start typing
+
+      <!-- Test Complete Start -->
+
+      Test Complete! Solid run. Keep pushing to beat your high score. WPM:
+      <!-- WPM -->
+      Accuracy:
+      <!-- Accuracy -->
+      Characters:
+      <!-- Correct/Incorrect -->
+
+      Go Again
+
+      <!-- Test Complete End -->
+    </p>
+  </body>
 </html>
