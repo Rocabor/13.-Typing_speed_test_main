@@ -149,5 +149,3 @@ We love receiving feedback! We're always looking to improve our challenges and o
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 
 **Have fun building!** 🚀
-#   1 3 . - T y p i n g _ s p e e d _ t e s t _ m a i n  
- 
