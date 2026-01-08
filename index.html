@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
@@ -17,133 +16,141 @@
   </head>
   <body>
     <div class="main">
-
       <!-- CABECERA: Logo y récord personal -->
+
+      <!-- HOME - NOT STARTED -->
+
       <header class="header">
         <picture>
-          <source media="(min-width:760px)" srcset="assets/images/logo-large.svg">
+          <source media="(min-width:760px)" srcset="assets/images/logo-large.svg" />
           <img src="assets/images/logo-small.svg" alt="Typing Test Logo" class="logo" />
         </picture>
-        
 
         <div class="personal-best-text-cont">
           <div class="personal-best">
-            <img src="assets/images/icon-personal-best.svg" alt="Trophy icon" aria-hidden="true" />
-
+            <img src="assets/images/icon-personal-best.svg" alt="Ícono de trofeo" aria-hidden="true" />
             <span class="pb-label">Personal best:</span>
             <span id="pb-score" class="pb-value" aria-live="polite">--- WPM</span>
           </div>
         </div>
       </header>
 
-      <main class="main-content">
-        
-        <!-- SECCIÓN DE ESTADÍSTICAS: Uso de etiquetas de datos -->
+      <main class="main-content" >
+
+        <!-- SECCIÓN DE ESTADÍSTICAS -->
+
         <section class="stats-container" aria-label="Estadísticas en tiempo real">
-          
           <div class="stats-row">
             <div class="stat-item wpm-cont">
               <span class="stat-label">WPM:</span>
-              <strong class="stat-value" id="wpm">---</strong>
+              <strong class="stat-value" id="wpm" aria-live="polite">---</strong>
             </div>
             <div class="stat-item acc-cont">
               <span class="stat-label">Accuracy:</span>
-              <strong class="stat-value" id="accuracy">---%</strong>
+              <strong class="stat-value" id="accuracy" aria-live="polite">---%</strong>
             </div>
             <div class="stat-item time-cont">
               <span class="stat-label">Time:</span>
-              <strong class="stat-value" id="time">-:--</strong>
+              <strong class="stat-value" id="time" aria-live="polite">-:--</strong>
             </div>
           </div>
 
-          <!-- MENU DE DIFICULTAD MODO MOVIL -->
-          <div class="setting-cont-movil" aria-label="Configuración del test">
-            <button type="button" class="btn-setting" aria-haspopup="listbox" aria-expanded="false">
-              Difficulty
-              <img src="assets/images/icon-down-arrow.svg" alt="" aria-hidden="true" />
+          <!-- MENU DROPDOWN -->
 
-              <div class="dropdown-difficulty">
-                <div class="select">
+          <div class="setting-cont-movil" aria-label="Configuración del test">
+            <div class="dropdown-group">
+              <button type="button" class="btn-setting" aria-haspopup="listbox" aria-expanded="false" id="difficulty-mobile-btn">
+                Difficulty
+                <img src="assets/images/icon-down-arrow.svg" alt="Desplegar opciones de dificultad" aria-hidden="true" />
+              </button>
+
+              <div class="dropdown-difficulty" role="listbox" aria-labelledby="difficulty-mobile-btn" hidden>
+                <div class="select" role="option" tabindex="0" aria-selected="true">
                   <div class="circle"></div>
                   <p>Easy</p>
                 </div>
-                <hr />
-                <div class="select">
+                <hr aria-hidden="true" />
+                <div class="select" role="option" tabindex="0" aria-selected="false">
                   <div class="circle">
                     <div class="circle-2"></div>
                   </div>
                   <p>Medium</p>
                 </div>
-                <hr />
-                <div class="select">
+                <hr aria-hidden="true" />
+                <div class="select" role="option" tabindex="0" aria-selected="false">
                   <div class="circle">
                     <div class="circle-2"></div>
                   </div>
                   <p>Hard</p>
                 </div>
               </div>
-            </button>
+            </div>
 
-            <button type="button" class="btn-setting" aria-haspopup="listbox" aria-expanded="false">
-              Mode
-              <img src="assets/images/icon-down-arrow.svg" alt="" aria-hidden="true" />
+            <div class="dropdown-group">
+              <button type="button" class="btn-setting" aria-haspopup="listbox" aria-expanded="false" id="mode-mobile-btn">
+                Mode
+                <img src="assets/images/icon-down-arrow.svg" alt="Desplegar opciones de modo" aria-hidden="true" />
+              </button>
 
-              <div class="dropdown-mode">
-                <div class="select">
+              <div class="dropdown-mode" role="listbox" aria-labelledby="mode-mobile-btn" hidden>
+                <div class="select" role="option" tabindex="0" aria-selected="true">
                   <div class="circle"></div>
                   <p>Timed (15s)</p>
                 </div>
-                <hr />
-                <div class="select">
+                <hr aria-hidden="true" />
+                <div class="select" role="option" tabindex="0" aria-selected="false">
                   <div class="circle"></div>
                   <p>Timed (30s)</p>
                 </div>
-                <hr />
-                <div class="select">
+                <hr aria-hidden="true" />
+                <div class="select" role="option" tabindex="0" aria-selected="false">
                   <div class="circle"></div>
                   <p>Timed (60s)</p>
                 </div>
-                <hr />
-                <div class="select">
+                <hr aria-hidden="true" />
+                <div class="select" role="option" tabindex="0" aria-selected="false">
                   <div class="circle"></div>
                   <p>Timed (120s)</p>
                 </div>
-                <hr />
-                <div class="select">
+                <hr aria-hidden="true" />
+                <div class="select" role="option" tabindex="0" aria-selected="false">
                   <div class="circle"></div>
                   <p>Passage</p>
                 </div>
               </div>
-            </button>
+            </div>
           </div>
 
-           <!-- MENU DIFICULTAD MODO TABLET o DESKTOP -->
+          <!-- MENU DIFICULTAD MODO TABLET / DESKTOP -->
 
-        <div class="setting-cont" aria-label="Configuración del test">
-          <div class="difficulty-cont">
-            <span class="difficulty-label">Difficulty:</span>
-            <button type="button" class="btn-difficulty">Easy</button>
-            <button type="button" class="btn-difficulty">Medium</button>
-            <button type="button" class="btn-difficulty">Hard</button>
+          <div class="setting-cont" aria-label="Configuración del test">
+            <div class="difficulty-cont">
+              <span class="difficulty-label">Difficulty:</span>
+              <div class="difficulty-buttons" role="radiogroup" aria-label="Seleccionar dificultad">
+                <button type="button" class="btn-difficulty" role="radio" aria-checked="true">Easy</button>
+                <button type="button" class="btn-difficulty" role="radio" aria-checked="false">Medium</button>
+                <button type="button" class="btn-difficulty" role="radio" aria-checked="false">Hard</button>
+              </div>
+            </div>
+
+            <div class="mode-cont">
+              <span class="mode-label">Mode:</span>
+              <div class="mode-buttons" role="radiogroup" aria-label="Seleccionar modo de prueba">
+                <button type="button" class="btn-mode" role="radio" aria-checked="true">15s</button>
+                <button type="button" class="btn-mode" role="radio" aria-checked="false">30s</button>
+                <button type="button" class="btn-mode" role="radio" aria-checked="false">60s</button>
+                <button type="button" class="btn-mode" role="radio" aria-checked="false">120s</button>
+                <button type="button" class="btn-mode" role="radio" aria-checked="false">Passage</button>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div class="mode-cont">
-            <span class="mode-label">Mode:</span>
-            <button type="button" class="btn-mode"> 15s</button>
-            <button type="button" class="btn-mode"> 30s</button>
-            <button type="button" class="btn-mode"> 60s</button>
-            <button type="button" class="btn-mode"> 120s</button>
-            <button type="button" class="btn-mode">Passage</button>       
-          </div>
+        <!-- ÁREA DE ESCRITURA -->
 
-        </div>
-        </section>      
-
-
-        <!-- ÁREA DE ESCRITURA: Estructura clara para interacción -->
-        <section class="text-container">
+        <section class="text-container" aria-label="Área de escritura">
           <div class="text-row" id="typing-area">
-            <div class="text-box" id="text-box">
+            <div class="text-box" id="text-input" tabindex="0" role="textbox" aria-label="Texto para practicar mecanografía" aria-multiline="true">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum laboriosam totam soluta id optio consequuntur iure id optio consequuntur iure id optio consequuntur iure
             </div>
 
@@ -153,37 +160,47 @@
             </div>
           </div>
         </section>
+
+        <div class="btn-restart-cont" >
+          <button type="button" class="btn-restart" id="restart-btn">Restart Test <img src="assets/images/icon-restart.svg" alt="" /></button>
+        </div>
       </main>
+
+      <!-- RESULTS  -->
+
+      <section class="test-complete" aria-labelledby="test-complete-title" role="region">
+        <img id="complete-icon" class="complete-icon" src="assets/images/icon-completed.svg" alt="" aria-hidden="true" />
+
+          <div class="message-cont">
+          <h1 class="message">Test Complete!</h1>
+          <p class="message">Solid run. Keep pushing to beat your high score.</p>
+        </div>
+
+        <div class="stats-row-complete">
+          <div class="wpm-cont" role="status">
+            <span class="label">WPM:</span>
+            <strong class="wpm-value" id="wpm" aria-live="polite">---</strong>
+          </div>
+
+          <div class="accuracy-cont" role="status">
+            <span class="label">Accuracy:</span>
+            <strong class="accuracy-value" id="accuracy" aria-live="polite">---%</strong>
+          </div>
+
+          <div class="characters-cont" role="status">
+            <span class="label">Characters</span>
+            <span class="characters-values">
+              <strong class="value-correct" id="Correct" aria-live="polite">---</strong> /
+              <strong class="value-incorrect" id="Incorrect" aria-live="polite">---</strong>
+            </span>
+          </div>
+        </div>
+
+        <button type="button" class="btn-go-again" id="go-again-btn" aria-label="Restart test">
+          Go Again
+          <img src="assets/images/icon-restart.svg" alt="" aria-hidden="true" />
+        </button>
+      </section>
     </div>
-
-    <p hidden>
-      Personal best:
-      <!-- PB -->
-      WPM WPM:
-      <!-- WPM -->
-      Accuracy:
-      <!-- Accuracy -->
-      Time:
-      <!-- Time -->
-
-      Difficulty: Easy Medium Hard Mode: Timed (60s) Passage
-
-      <!-- Passage -->
-
-      Start Typing Test Or click the text and start typing
-
-      <!-- Test Complete Start -->
-
-      Test Complete! Solid run. Keep pushing to beat your high score. WPM:
-      <!-- WPM -->
-      Accuracy:
-      <!-- Accuracy -->
-      Characters:
-      <!-- Correct/Incorrect -->
-
-      Go Again
-
-      <!-- Test Complete End -->
-    </p>
   </body>
 </html>

@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   min-height: 100vh;
 }
 
@@ -50,6 +50,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: 32px;
 }
 
 .personal-best {
@@ -76,10 +77,9 @@ body {
   flex-direction: column;
   align-items: center;
   width: 343px;
-  gap: 32px;
 }
 
-/* SECCIÓN DE ESTADÍSTICAS: Uso de etiquetas de datos */
+/* SECCIÓN DE ESTADÍSTICAS */
 
 .stats-container {
   display: flex;
@@ -118,6 +118,7 @@ body {
 
 .setting-cont {
   display: none;
+  /* display: flex; */
 }
 
 .setting-cont-movil {
@@ -140,7 +141,7 @@ body {
   color: var(--neutral-0);
 }
 
-/* ÁREA DE ESCRITURA: Estructura clara para interacción */
+/* MENU DROPDOWN */
 
 .dropdown-difficulty,
 .dropdown-mode {
@@ -192,11 +193,11 @@ body {
 
 } */
 
-hr {
+/* hr {
   border: 1px solid var(--neutral-700);
-}
+} */
 
-/* ÁREA DE ESCRITURA: Estructura clara para interacción */
+/* ÁREA DE ESCRITURA */
 
 .text-container,
 .text-row {
@@ -247,12 +248,157 @@ hr {
   font-weight: 600;
 }
 
+.btn-restart-cont {
+  width: 100%;
+  height: 80px;
+  display: none;
+  /* display: flex; */
+  justify-content: center;
+  align-items: end;
+  border-top: 1px solid var(--neutral-700);
+}
+
+.btn-restart {
+  width: 181px;
+  height: 56px;
+  border-radius: 12px;
+  background-color: var(--neutral-800);
+  border: none;
+  color: var(--neutral-0);
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.3px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* RESULTS */
+
+.test-complete {
+  width: 343px;
+  height: 609px;
+  display: none;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-block: 16px 0;
+}
+
+.test-complete::before {
+  content: "";
+  background-image: url("/assets/images/pattern-star-2.svg");
+  background-size: contain;
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 18px;
+  top: 124.5px;
+}
+
+.test-complete::after {
+  content: "";
+  background-image: url("/assets/images/pattern-star-1.svg");
+  background-size: contain;
+  position: absolute;
+  width: 39px;
+  height: 39px;
+  left: 307px;
+  top: 733px;
+}
+
+.complete-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #22492f, 0 0 0 20px #18251c;
+}
+
+.message-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-block: 16px 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: 0.32px;
+  font-weight: 700;
+}
+
+p,
+.label {
+  font-size: 16px;
+  line-height: 120%;
+  letter-spacing: -0.48px;
+  color: var(--neutral-400);
+}
+
+.stats-row-complete {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-block: 0 16px;
+  width: 100%;
+}
+
+.stats-row-complete > * {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--neutral-700);
+  border-radius: 8px;
+  padding: 16px 24px;
+}
+
+.accuracy-value,
+.value-incorrect {
+  color: var(--red-500);
+}
+
+.value-correct {
+  color: var(--green-500);
+}
+
+.btn-go-again {
+  width: 155px;
+  height: 56px;
+  border-radius: 12px;
+  border: none;
+  color: var(--neutral-900);
+  font-size: 20px;
+  font-family: "Sora", sans-serif;
+  line-height: 120%;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-go-again img {
+  filter: brightness(0) saturate(100%);
+}
+
 /* DISPLAY TABLET */
+
 @media (min-width: 760px) {
   .main {
     width: 760px;
     padding: 32px 32px 64px;
     gap: 40px;
+  }
+
+  /* CABECERA: Logo y récord personal */
+
+  .header {
+    height: 39.18px;
   }
 
   .personal-best img {
@@ -271,7 +417,69 @@ hr {
     width: 704px;
   }
 
-  /* SECCIÓN DE ESTADÍSTICAS: Uso de etiquetas de datos */
+  /* RESULTS */
+
+  .test-complete {
+    width: 704px;
+    height: 496px;
+    gap: 32px;
+    padding-block: 24px 0;
+    margin-top: 40px;
+  }
+
+  .stats-row-complete {
+    flex-direction: row;
+    padding-block: 20px 32px;
+    gap: 20px;
+  }
+
+  .stats-row-complete > * {
+    width: 221.33px;
+    height: 92px;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 600;
+  }
+
+  .test-complete::before {
+    width: 32px;
+    height: 32px;
+    left: 48px;
+    top: 195px;
+  }
+
+  .test-complete::after {
+    width: 74px;
+    height: 74px;
+    left: 662px;
+    top: 623px;
+  }
+
+  .complete-icon {
+    width: 64px;
+    height: 64px;
+    box-shadow: 0 0 0 18px #22492f, 0 0 0 36px #18251c;
+  }
+
+  .message-cont {
+    gap: 10px;
+    padding-block: 24px 0;
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 136%;
+    letter-spacing: 0.4px;
+  }
+
+  p,
+  .label {
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.6px;
+  }
+
+  /* SECCIÓN DE ESTADÍSTICAS */
 
   .stats-container {
     width: 704px;
@@ -295,9 +503,10 @@ hr {
     margin-block-start: 0px;
   }
 
-  /* MENU DE DIFICULTAD MODO TABLET o DESKTOP */
+  /* MENU DE DIFICULTAD MODO TABLET / DESKTOP */
 
   .setting-cont-movil {
+    /* display: flex; */
     display: none;
   }
 
@@ -308,6 +517,7 @@ hr {
 
   .difficulty-cont,
   .mode-cont {
+    /* display: none; */
     display: flex;
     align-items: center;
     gap: 6px;
@@ -343,27 +553,56 @@ hr {
 }
 
 /* DISPLAY DESKTOP */
+
 @media (min-width: 1400px) {
   .main {
-    width: 1440px;
+    width: 100%;
     padding: 32px 112px;
     gap: 64px;
   }
 
-  .main-content {
-    width: 1216px;
-  }
+  /* .main-content {
+    width: 100%;
+  } */
 
   .stats-container {
     flex-direction: row;
     justify-content: space-between;
     width: 1216px;
-
     padding-block: 0 16px;
   }
 
   .text-container,
   .text-row {
     height: 540px;
+  }
+
+  /* RESULTS */
+
+  .test-complete {
+    width: 1216px;
+    margin-top: 0;
+  }
+
+  .message-cont {
+    padding-block: 24px 0;
+  }
+
+  .stats-row-complete {
+    justify-content: center;
+  }
+
+  .stats-row-complete > * {
+    width: 160px;
+  }
+
+  .test-complete::before {
+    left: 109px;
+    top: 251px;
+  }
+
+  .test-complete::after {
+    left: calc(100% - 186px);
+    top: 521px;
   }
 }
