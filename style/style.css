@@ -146,7 +146,6 @@ body {
 .dropdown-difficulty,
 .dropdown-mode {
   display: none;
-  /* display: flex; */
   flex-direction: column;
   padding-block: 10px;
   gap: 8px;
@@ -193,9 +192,9 @@ body {
 
 } */
 
-/* hr {
+hr {
   border: 1px solid var(--neutral-700);
-} */
+}
 
 /* ÁREA DE ESCRITURA */
 
