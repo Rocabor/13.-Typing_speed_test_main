@@ -34,6 +34,7 @@ const modeMobileBtn = document.getElementById("mode-mobile-btn");
 const arrows = document.querySelectorAll(".arrow");
 const dropdownDifficulty = document.querySelector(".dropdown-difficulty");
 const dropdownMode = document.querySelector(".dropdown-mode");
+
 const dropdowns = {
   difficulty: dropdownDifficulty,
   mode: dropdownMode,
@@ -54,13 +55,44 @@ const goAgainBtn = document.getElementById("go-again-btn");
 // Elementos DOM - Récord personal
 const pbScoreElement = document.getElementById("pb-score");
 
-// FUNCION DROPDOWN MOVIL
+// MOVIL
+// FUNCION DROPDOWN 
+// 1. Toggle simplificado 
 function toggleElement(menu, arrow) {
-  const isHidden = menu.style.display === "none" || menu.style.display === "";
-
+  const isHidden = menu.style.display !== "flex";
   menu.style.display = isHidden ? "flex" : "none";
-  arrow.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+  arrow.style.transform = `rotate(${isHidden ? 180 : 0}deg)`;
 }
-// Eventos limpios de una sola línea
-difficultyMobileBtn.addEventListener("click", () => toggleElement(dropdowns.difficulty, arrows[0]));
-modeMobileBtn.addEventListener("click", () => toggleElement(dropdowns.mode, arrows[1]));
+
+// 2. Lógica unificada
+[
+  { btn: difficultyMobileBtn, menu: dropdowns.difficulty, arrow: arrows[0] },
+  { btn: modeMobileBtn, menu: dropdowns.mode, arrow: arrows[1] }
+].forEach(({ btn, menu, arrow }) => {
+  const btnText = btn.querySelector(".btn-text");
+  const opciones = menu.querySelectorAll(".select");
+
+  btn.addEventListener("click", () => toggleElement(menu, arrow));
+
+  opciones.forEach(opcion => {
+    opcion.addEventListener("click", () => {
+      // Sincroniza clases y accesibilidad en un solo paso
+      opciones.forEach(opt => {
+        const isSelected = opt === opcion;
+        opt.classList.toggle("active", isSelected);
+        opt.setAttribute("aria-selected", isSelected);
+      });
+
+      if (btnText) btnText.textContent = opcion.dataset.value;
+      toggleElement(menu, arrow); // Cierra y gira flecha
+    });
+  });
+});
+
+
+
+
+
+
+
+

@@ -170,7 +170,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  /* transition: all 0.2s ease; */
   /* background-color: var(--blue-400);  */
+}
+
+
+.select.active .circle{ 
+  background-color: var(--blue-400);
+  border-color: var(--blue-400);
 }
 
 .circle::before {
@@ -178,19 +186,8 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  border: none;
-  /* background-color: var(--neutral-900); */
+  background-color: var(--neutral-900);
 }
-
-/* .circle::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid var(--blue-400);
-  border-radius: 50%;
-
-} */
 
 hr {
   border: 1px solid var(--neutral-700);
@@ -330,7 +327,6 @@ h1 {
   font-weight: 700;
 }
 
-p,
 .label {
   font-size: 16px;
   line-height: 120%;
@@ -471,8 +467,7 @@ p,
     letter-spacing: 0.4px;
   }
 
-  p,
-  .label {
+    .label {
     font-size: 20px;
     line-height: 120%;
     letter-spacing: -0.6px;
